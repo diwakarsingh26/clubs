@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="C:\Users\hp\Desktop\college clubs\public\stylesheets\style.css">
+    <title>Dance Club</title>
+    <style>
+     .club-section {
+    text-align: center;
+}
+
+.center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.paragraph {
+    text-align: left;
+    padding: 5px;
+}
+
+.image-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px; /* Add some spacing between images and paragraphs */
+}
+
+.club-image {
+    width: 23%; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 10px;
+}
+.container {
+            width: 95%; /* Set the width of the container */
+            margin: 0 auto; /* Center the container */
+            border: 1px solid #ccc; /* Add a border for visual separation */
+            padding: 20px; /* Add some padding inside the container */
+            background-color: antiquewhite;
+        }
+
+        /* Optional: Add styles for the paragraph */
+        .container p {
+            font-size: 16px;
+            color: #181717;
+            line-height: 1.5;
+        }
+        .footer {
+            text-align: center;
+        }
+        .button {
+            text-align: center;
+        }
+        .paragraph {
+            font-size: 20px;
+            padding: 20px;
+        }
+
+       
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="navbar-left">
+        <img src="https://www.gbu.ac.in/Content/img/fulllogogbu.png" alt="College Logo">
+    </div>
+    <div class="navbar-right">
+        <div class="navbar-links">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            
+            <li><a href="events.html">Events</a></li>
+            <li><a href="#contact-section">Contacts</a></li>
+            <li><a href="form-page.html">Ask Query</a></li>
+            <li><a href="">Get Query</a></li>
+           
+        </ul>
+    </div>
+<div class="highlight-box"></div>
+</div>
+</nav>
+
+
+
+<!-- Dance Club Content -->
+<section class="club-section">
+    <div class="center-content">
+    <h2 class="club-title">Dance Club</h2>
+    <div class="image-container">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTINUymWXNmA9WmgpzQr-NdmLn0vZ2JHFX4OA&usqp=CAU" alt="Dance Club Image" class="club-image">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRF-eEPGMnCeAtYgzJcFcyu8CEApz80r87VVQ&usqp=CAU" alt="Dance image" class="club-image">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQL0Fc7kChQnYoEH9YLtyJS0aWB4kiLajZydw&usqp=CAU" alt="Dnace image" class="club-image">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtydDIwwOJVpLyzzTlHDy71bQl0nvdlq1LHg&usqp=CAU" alt="Dance image" class="club-image">
+    
+    </div>
+    </div>
+    </section>
+    <div class="container">
+    <h4>About</h4>
+    <p> Dance is a captivating and expressive form of art that involves rhythmic movement of the body in response to music or other auditory stimuli. It is a universal language that transcends cultural boundaries, serving as a powerful means of communication and self-expression. Beyond its aesthetic appeal, dance holds cultural significance and is often deeply rooted in tradition, reflecting the history and identity of communities. Whether performed as a traditional ritual, a social activity, or a professional stage production, dance has the ability to convey emotions, tell stories, and celebrate the diversity of human expression. It encompasses a wide range of styles and genres, from classical ballet to contemporary hip-hop, each offering a unique lens through which individuals can explore creativity, connect with others, and celebrate the joy of movement.
+    </p>
+     </div>
+     <div class="paragraph" id="contact-section">
+    <h4>Contact Details:</h4>
+    <p>dance@example.com
+        <br>
+       Phone no.:0120-2344200 
+       <br>
+       Address 
+       <br>
+               example Building <br>
+                  example school <br>
+                  Gautam Buddha University
+    </p>
+    </div>
+   
+
+
+<!-- Footer -->
+<div class="footer">
+    <p>&copy; 2023 College Clubs</p>
+</div>
+
+<!-- JavaScript for handling queries -->
+<script>
+     function openQueryForm(dance) {
+            // Redirect to the form page with the clubName as a parameter
+            window.location.href = 'form-page.html?club=' + encodeURIComponent(dance);
+        }
+</script>
+
+</body>
+</html>
