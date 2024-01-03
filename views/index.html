@@ -15,16 +15,64 @@
             padding: 15px;
         }
 
-        .navbar1 img {
-            height: 300px;
-            width: 100%;
-        }
+        #slider-container {
+      width: 100%; /* Set the width of the slider container */
+      overflow: hidden; /* Hide the overflowing content */
+      position: relative;
+    }
+
+    #slider {
+      display: flex; /* Make the slider items a flex container */
+      transition: transform 0.5s ease-in-out; /* Add smooth transition effect */
+    }
+
+    .slider-item {
+      width: 100%; /* Set the width of each slider item */
+      flex-shrink: 0; /* Disable shrinking of items */
+      position: relative;
+    }
+
+    img {
+      width: 100%; /* Make the images fill their container */
+      cursor: pointer; /* Add pointer cursor on images */
+    }
+
+    .text-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 10px;
+      box-sizing: border-box;
+      display: inline-block;
+    }
+
+    .blue-overlay {
+      background-color: blue;
+      color: white;
+      z-index: 1;
+      align-content: center;
+      margin-bottom: 100px;
+      font-size: 38px;
+    }
+
+    .dark-grey-overlay {
+      background-color: rgb(50, 48, 48);
+      color: white;
+      text-align: center;
+      z-index: 2;
+      margin-bottom: 15px;
+      font-size: 17px;
+    }
+ 
+       
 
         .middle {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     margin-top: 50px;
+    background-color: antiquewhite;
 }
 
 .club {
@@ -35,6 +83,7 @@
     box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
     margin-bottom: 50px;
     overflow: hidden;
+    margin-top: 20px;
 }
 
 .club img {
@@ -61,8 +110,30 @@
         }
         .contact {
             padding: 10px;
+            margin-top: 30px;
+            margin-left: 30px;
         
         }
+
+        .contact img {
+          width: auto;
+          height: auto;
+        }
+        .slider-nav {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+
+    .slider-nav button {
+      background: none;
+      border: none;
+      font-size: 40px;
+      cursor: pointer;
+    }
         
     </style>
 </head>
@@ -77,9 +148,9 @@
                     <div class="navbar-links">
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        
                         <li><a href="events.html">Events</a></li>
                         <li><a href="#contact-section">Contacts</a></li>
+                        
                         
                        
                     </ul>
@@ -87,21 +158,34 @@
             <div class="highlight-box"></div>
             </div>
             </nav>
-        
-    
-    <div class="navbar1">
-        <img src="https://www.gbu.ac.in/Content/img/banner/banner1.jpg" alt="College Name">
-       
-    </div>
 
+            <div id="slider-container">
+                <div id="slider">
+                  <div class="slider-item">
+                    <img src="https://www.gbu.ac.in/Content/img/banner/banner1.jpg" alt="Image 1">
+                    <div class="text-overlay blue-overlay">Globally Acclaimed University in Delhi-NCR</div>
+                    <div class="text-overlay dark-grey-overlay">Established by the Uttar Pradesh Gautam Buddha University Act 2002 UP Act No. 9 of 2002
+                      Approved by UGC under Section 12-B & NAAC accredited</div>
+                  </div>
+                  <div class="slider-item"><img src="https://www.gbu.ac.in/Content/img/banner/banner2.jpg" alt="Image 2"></div>
+                  <div class="slider-item"><img src="https://www.gbu.ac.in/Content/img/banner/website1.jpeg" alt="Image 2"></div>
+                  <div class="slider-item"><img src="https://www.gbu.ac.in/Content/img/banner/website2.jpeg" alt="Image 3"></div>
+                  <!-- Add more slider items as needed -->
+                </div>
+                <div class="slider-nav">
+                    <button onclick="prevSlide()">&#10094;</button>
+                    <button onclick="nextSlide()">&#10095;</button>
+                  </div>
+              </div>
+    
     <div class="middle">
-        <div class="club" onclick="location.href='views/dance.html'">
+        <div class="club" onclick="location.href='dance.html'">
             <img src="C:\Users\hp\Desktop\college clubs\public\images\danceimg.jpeg" alt="Dance">
             <div class="club-name">Dance</div>
             </div>
-        <div class="club" onclick="location.href='arts.html'">
-            <img src="C:\Users\hp\Desktop\college clubs\public\images\artsimg.jpeg" alt="Arts">
-            <div class="club-name">Arts</div>
+        <div class="club" onclick="location.href='technocultural.html'">
+            <img src="https://technoclub23.github.io/technoculturalclub/assets/images/about.jpg" alt="Arts">
+            <div class="club-name">Technocultural</div>
             </div>
         <div class="club" onclick="location.href='singing.html'">
             <img src="C:\Users\hp\Desktop\college clubs\public\images\music3.jpg" alt="Music">
@@ -118,7 +202,7 @@
     </div>
 
     <div class="contact" id="contact-section">
-        <h3>Contact us:</h3>
+        <img src="https://www.gbu.ac.in/Content/img/logo_gbu.png" alt="gbu logo">
         <h4>Gautam Buddha University</h4>
         <p> Opp.Yamuna Expressway
             <br>
@@ -136,5 +220,74 @@
     <div class="footer">
          <p>Copyright &copy; 2023. All rights reserved.</p>
     </div>
+
+    <script>
+      const sliderContainer = document.getElementById('slider-container');
+  const slider = document.getElementById('slider');
+  let currentIndex = 0;
+
+  // Function to handle mouseenter event on images
+  function handleMouseEnter() {
+    isPaused = true;
+  }
+
+  // Function to handle mouseleave event on images
+  function handleMouseLeave() {
+    isPaused = false;
+  }
+
+  // Function to start the sliding animation
+  function startSlider() {
+    if (!isPaused) {
+      const firstItem = slider.children[0];
+      slider.style.transition = 'transform 0.5s ease-in-out';
+      slider.style.transform = `translateX(-${firstItem.offsetWidth}px)`;
+
+      // Reorder the items after transition completes
+      setTimeout(() => {
+        slider.style.transition = 'none';
+        slider.appendChild(firstItem);
+        slider.style.transform = 'translateX(0)';
+      }, 500);
+    }
+  }
+
+  // Set up event listeners
+  sliderContainer.addEventListener('mouseenter', handleMouseEnter);
+  sliderContainer.addEventListener('mouseleave', handleMouseLeave);
+  document.addEventListener('keydown', handleKeyDown);
+
+  // Start the slider interval
+  setInterval(startSlider, 3000); // Change the interval as needed (in milliseconds)
+
+  // Function to show the previous slide
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + slider.children.length) % slider.children.length;
+    updateSlider();
+  }
+
+  // Function to show the next slide
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % slider.children.length;
+    updateSlider();
+  }
+
+  // Function to update the slider based on the currentIndex
+  function updateSlider() {
+    const itemWidth = slider.children[0].offsetWidth;
+    slider.style.transition = 'transform 0.5s ease-in-out';
+    slider.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
+  }
+
+  // Function to handle keyboard arrow keys
+  function handleKeyDown(event) {
+    if (event.key === 'ArrowLeft') {
+      prevSlide();
+    } else if (event.key === 'ArrowRight') {
+      nextSlide();
+    }
+  }
+      </script>
+      
 </body>
 </html>
